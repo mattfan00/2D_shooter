@@ -5,20 +5,22 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
     public float runSpeed = 40f;
+    public int playerID;
     float horizontalMovement;
     bool jump = false;
+
 
     // Update is called once per frame
     void Update()
     {
-        horizontalMovement = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMovement = Input.GetAxisRaw("Horizontal" + playerID.ToString()) * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
         
         if (animator.GetFloat("Speed") == 0f) {
             animator.SetBool("IsShooting", false);
         }
 
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetButtonDown("Jump" + playerID.ToString())) {
             jump = true;
             animator.SetBool("IsJumping", true);
         }

@@ -53,3 +53,6 @@ TagManager:
   - name: Player
     uniqueID: 1152031287
     locked: 0
+  - name: Canvas
+    uniqueID: 3885612961
+    locked: 0

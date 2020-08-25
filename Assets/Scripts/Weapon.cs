@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public Animator animator;
     public static float shootingAnimationSpeed = 1.0f;
+    public int playerID;
     float targetTime = shootingAnimationSpeed;
     bool shootTimerActivated = false;
 
@@ -16,7 +17,7 @@ public class Weapon : MonoBehaviour
             targetTime -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire" + playerID)) {
             Shoot();
         }
 

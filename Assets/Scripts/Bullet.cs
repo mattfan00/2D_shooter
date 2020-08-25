@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(transform.right);
         rb.velocity = transform.right * speed;
     }
 

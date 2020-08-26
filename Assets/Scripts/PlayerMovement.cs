@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
             AdjustFirePoint(crouch);
         } else if (Input.GetButtonUp("Crouch" + playerID.ToString())) {
             crouch = false;
-            animator.SetBool("IsCrouching", false);
             AdjustFirePoint(crouch);
         }
     }
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     void AdjustFirePoint(bool isCrouching) {
         if (isCrouching) {
             Vector3 crouchingPosition = new Vector3(0.55f, -0.31f, 0f);
-            Debug.Log(transform.rotation.y);
             if (transform.rotation.y == -1) {
                 crouchingPosition.x *= -1;
             }
@@ -65,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void OnCrouching(bool crouching) {
-        crouch = crouching;
         animator.SetBool("IsCrouching", crouch);
+        Debug.Log(animator.GetBool("IsCrouching"));
     }
 }

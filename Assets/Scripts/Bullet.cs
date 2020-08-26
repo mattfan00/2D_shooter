@@ -3,7 +3,7 @@
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
-    public int damage = 50;
+    public int damage;
     public Rigidbody2D rb;
     public GameObject impactEffect;
     // Start is called before the first frame update
@@ -14,10 +14,10 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo) {
-        Enemy enemy = hitInfo.GetComponent<Enemy>();
+        PlayerHealth playerHealth = hitInfo.GetComponent<PlayerHealth>();
 
-        if (enemy != null) {
-            enemy.TakeDamage(damage);
+        if (playerHealth) {
+            playerHealth.TakeDamage(damage);
         }
         
         Instantiate(impactEffect, transform.position, transform.rotation);

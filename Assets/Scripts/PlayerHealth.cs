@@ -16,6 +16,13 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    void FixedUpdate() {
+        if (transform.position.y < -5) {
+            Debug.Log("death");
+            TakeDamage(maxHealth);
+        }
+    }
+
     public void TakeDamage(int damage) {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
